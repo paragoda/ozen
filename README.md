@@ -1,2 +1,2 @@
-# zima
+# WINTERA
 🧣 Your backend for speed
