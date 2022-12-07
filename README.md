@@ -1,2 +1,2 @@
-# WINTERA
-🧣 Your backend for speed
+# CORM
+Client ORM - your backend speed.
