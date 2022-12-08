@@ -1,2 +1,2 @@
-# CORM
-Client ORM - your backend speed.
+# OZEN
+Cross Enviroment ORM. Access your data from anywhere.
