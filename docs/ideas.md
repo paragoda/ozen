@@ -48,3 +48,71 @@ After getting object (for example id after insert) you just merge it with curren
 ## i3. devide project to several
 Want superate part of serealization and operation with db to seperate proj.
 Then we will not depend on framework and can add system of working with db to any backend. So maybe it's better to use query parameters rather than subroutes. Use 1 endpoint (like GraphQl) for each http header for db.
+
+---
+## i4. keep separate proj for managing ozen
+If we use cross enviroment (aka  different langs/repos) it will be nessasary share config without coping it. I want keep one 1 point of true database structure. 
+Also can make in each separate proj ozen.config file, that will describe what to generate, what we need.
+```
+|- ozen-server
+|- mobile
+ |- ozen.config.json
+|- web
+ |- ozen.config.json
+|- micro-service
+ |- ozen.config.json
+```
+web ozen.config.json
+```js
+{
+   from: 'htts://raw.github.io/name/repo/ozen.json',
+   tables: ['stats', 'analytics', 'posts']
+}
+```
+mobile ozen.config.json
+```js
+{
+    from: '?',
+    tables: ['posts', 'comments', 'likes']
+}
+```
+
+---
+## i5. Full ozen definition in 1 json file
+Because it's universal, of course it can be genarated from typescript,... sdk.
+```js
+{
+    git: { // should it be there?
+        owner: 'org-or-user-name',
+        repo: 'main-server'
+    },
+    lang: 'rust',
+    db: {
+        type: 'mysql',
+        connectionStrEnv: 'OZEN_DB_CONNECTION_STR', // name of env variable, that contains connection string
+        tables: {
+            posts: {
+                fields: {
+                    id: {
+                        type: 'bigint',
+                        flags: ['autoincrement', 'pk']
+                    },
+                    title: {
+                        // all high level is 
+                        type: 'varchar',
+                        flags: ['unique']
+                        props: {
+                            size: 255,
+                        }
+                    }
+                },
+                access: {
+                    select: 'true',
+                    insert: 'current_user IS NOT NULL',
+                    delete: 'false'
+                }
+            },
+        }
+   }
+}
+```
