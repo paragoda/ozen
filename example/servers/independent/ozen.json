@@ -1,0 +1,6 @@
+{
+    "from": "https://raw.github.io/org/ozen-conf/ozen.json  (../../ozen/ozen.json)",
+    "type": "client",
+    "lang": "ts",
+    "to": "./orm.ts"
+}

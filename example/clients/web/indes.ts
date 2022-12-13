@@ -1,0 +1,7 @@
+/*
+
+For example TypeScript for web as the best choise for now.
+Maybe it will be cool to keep full ozen config in typescript
+if want and you have only clients in typescript.
+
+*/

@@ -1,0 +1,6 @@
+{
+    "from": "../../ozen/ozen.json",
+    "type": "client (web if we will suppot (g)rpc by default)",
+    "lang": "ts",
+    "to": "./orm.ts"
+}

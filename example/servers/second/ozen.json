@@ -1,0 +1,6 @@
+{
+    "from": "../../ozen/ozen.json",
+    "type": "server",
+    "lang": "go",
+    "to": "./orm.go"
+}

@@ -1,0 +1,6 @@
+{
+    "from": "../../ozen/ozen.json",
+    "type": "client",
+    "lang": "dart",
+    "to": "./orm.dart"
+}

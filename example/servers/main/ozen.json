@@ -1,0 +1,7 @@
+{
+    "from": "../../ozen/ozen.json",
+    "type": "server",
+    "lang": "rust",
+    "to": "./orm.rs",
+    "tables": ["authors"]
+}

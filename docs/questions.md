@@ -9,3 +9,7 @@ Can be powerfull option. Several selects or inserts for different tables can be 
 ---
 ## q2. Renaming table or column
 That's really question. I see only 1 way: add attribute to column/table `renamed`, which will contain old name of column/field. Or maybe create uuid for each column and table, but it's sh*t.
+
+---
+## q3. Can we support grpc
+It will be cook to use grpc. Because It's faster, when use HTTP 2. But a loot of people like rest more and it's more standart.
