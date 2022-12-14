@@ -13,3 +13,6 @@ That's really question. I see only 1 way: add attribute to column/table `renamed
 ---
 ## q3. Can we support grpc
 It will be cook to use grpc. Because It's faster, when use HTTP 2. But a loot of people like rest more and it's more standart.
+
+---
+## q4. Nullable unique

@@ -4,7 +4,7 @@
         "type": "mysql",
         "connectionStringEnv": "OZEN_DB_CONNECTION_STRING",
         "tables": {
-            "authors":{
+            "authors": {
                 "extends": "users ?",
                 "fields": {
                     "name": {
@@ -27,11 +27,16 @@
                 "fields": {
                     "id": {
                         "type": "bigint",
-                        "flags": ["autoincrement", "pk"]
+                        "flags": [
+                            "autoincrement",
+                            "pk"
+                        ]
                     },
                     "title": {
                         "type": "varchar",
-                        "flags": ["unique"],
+                        "flags": [
+                            "unique"
+                        ],
                         "size": 255
                     },
                     "authorId": {
@@ -53,6 +58,24 @@
                     "insert": "user is not null",
                     "update": "user = authorId //or// user.eq(authorId)",
                     "delete": "user = authorId //or// user.eq(authorId)"
+                }
+            },
+            "tests": {
+                "fields": {
+                    "id": {
+                        "type": "uuid",
+                        "flags": [
+                            "pk"
+                        ],
+                        "default": "generate"
+                    },
+                    "email": {
+                        "type": "varchar",
+                        "size": 512,
+                        "flags": [
+                            "unique"
+                        ]
+                    }
                 }
             }
         }

@@ -1,0 +1,35 @@
+{
+    "type": "mysql",
+    "connectionStringEnv": "OZEN_DB_CONNECTION_STRING",
+    "tables": {
+        "user": {
+            "id": "int autoincrement pk",
+            "name": "varchar(512) nullable",
+            "email": "text unique",
+            "profileViews": "int default(0)",
+            "role": "enum(USER, ADMIN) default(USER)",
+            "coinflips": "boolean[]",
+            "city": "text",
+            "country": "text",
+            "pets": "json",
+            "profile": "virtual(extendedProfile) nullable",
+            "posts": "virtual(post[])"
+        },
+        "extendedProfile": {
+            "id": "int autoincrement pk",
+            "userId": "int nullable unique",
+            "bio": "text nullable",
+            "user": "virtual(user, [userId], [id])"
+        },
+        "post": {
+            "id": "int autoincrement pk",
+            "title": "text",
+            "published": "boolean default(true)",
+            "author": "virtual(user, [authorId], [id])",
+            "authorId": "int",
+            "comments": "json",
+            "views": "int default(0)",
+            "likes": "int default(0)"
+        }
+    }
+}

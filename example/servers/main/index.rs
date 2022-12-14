@@ -24,5 +24,5 @@ And we can use any db connector, for example planetscale js lib for sending req 
 */
 
 fn main() {
-    println!("Ozen!");
+  println!("Ozen!");
 }
