@@ -9,7 +9,6 @@ Table of content:
 
 ## Requirements
 
-
 ### Basic funtionality should be super easy to setup
 If I don't need extend main server I don't want ever clone repo to my machine.
 
