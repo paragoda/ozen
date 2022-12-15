@@ -3,7 +3,6 @@ Cross Platform ORM. Access your data from anywhere with same dx.
 
 ## Requirements
 
----
 ### Basic funtionality should be super easy to setup
 If I don't need extend main server I don't want ever clone repo to my machine. Just make something like config file:
 ```bash
