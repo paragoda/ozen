@@ -31,5 +31,25 @@
             "views": "int default(0)",
             "likes": "int default(0)"
         }
+    },
+    "access": {
+        "user": {
+            "select": "",
+            "insert": "",
+            "update": "",
+            "delete": ""
+        },
+        "extendedProfile": {
+            "select": "",
+            "insert": "",
+            "update": "",
+            "delete": ""
+        },
+        "post": {
+            "select": "",
+            "insert": "",
+            "update": "",
+            "delete": ""
+        }
     }
 }
