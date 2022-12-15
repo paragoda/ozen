@@ -42,7 +42,7 @@ LaoutLogic.export(layouts[0])
 
 ---
 ## i2. merge with current on client
-After getting object (for example id after insert) you just merge it with current on client, wich already contains other fields (like name, keys, ...)
+After getting object (for example id after insert) you just merge it with current on client, wich already contains other fields (like title, content, ...)
 
 ---
 ## i3. devide project to several
