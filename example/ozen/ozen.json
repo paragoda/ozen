@@ -2,82 +2,95 @@
     "auth": true,
     "db": {
         "type": "mysql",
-        "connectionStringEnv": "OZEN_DB_CONNECTION_STRING",
-        "tables": {
-            "authors": {
-                "extends": "users ?",
-                "fields": {
-                    "name": {
-                        "type": "varchar",
-                        "size": 255
-                    },
-                    "bio": {
-                        "type": "text"
-                    }
-                },
-                "virtual": {
-                    "posts": {
-                        "type": "many",
-                        "table": "posts",
-                        "fk": "authorId"
-                    }
-                }
+        "connectionStringEnv": "OZEN_DB_CONNECTION_STRING"
+    },
+    "tables": {
+        "authors": {
+            "name": {
+                "type": "varchar",
+                "size": 255
+            },
+            "bio": {
+                "type": "text"
             },
             "posts": {
-                "fields": {
-                    "id": {
-                        "type": "bigint",
-                        "flags": [
-                            "autoincrement",
-                            "pk"
-                        ]
-                    },
-                    "title": {
-                        "type": "varchar",
-                        "flags": [
-                            "unique"
-                        ],
-                        "size": 255
-                    },
-                    "authorId": {
-                        "type": "fk",
-                        "to": {
-                            "table": "authors",
-                            "field": "id"
-                        }
-                    }
-                },
-                "virtual": {
-                    "author": {
-                        "type": "one",
-                        "fk": "authorId"
-                    }
-                },
-                "access": {
-                    "select": "true",
-                    "insert": "user is not null",
-                    "update": "user = authorId //or// user.eq(authorId)",
-                    "delete": "user = authorId //or// user.eq(authorId)"
+                "type": "many",
+                "table": "posts",
+                "fk": "authorId"
+            }
+        },
+        "posts": {
+            "id": {
+                "type": "bigint",
+                "flags": [
+                    "autoincrement",
+                    "pk"
+                ]
+            },
+            "title": {
+                "type": "varchar",
+                "flags": [
+                    "unique"
+                ],
+                "size": 255
+            },
+            "authorId": {
+                "type": "fk",
+                "to": {
+                    "table": "authors",
+                    "field": "id"
                 }
             },
-            "tests": {
-                "fields": {
-                    "id": {
-                        "type": "uuid",
-                        "flags": [
-                            "pk"
-                        ],
-                        "default": "generate"
-                    },
-                    "email": {
-                        "type": "varchar",
-                        "size": 512,
-                        "flags": [
-                            "unique"
-                        ]
-                    }
-                }
+            "author": {
+                "type": "one",
+                "fk": "authorId"
             }
+        },
+        "tests": {
+            "id": {
+                "type": "uuid",
+                "flags": [
+                    "pk"
+                ],
+                "default": "generate"
+            },
+            "email": {
+                "type": "varchar",
+                "size": 512,
+                "flags": [
+                    "unique"
+                ]
+            }
+        }
+    },
+    "access": {
+        "posts": {
+            "insert": "user is not null",
+            "update": "user.eq(authorId)",
+            "delete": "user.eq(authorId)"
+        },
+        "authors": {
+            "insert": "user is not null",
+            "update": "user.eq(authorId)",
+            "delete": "user.eq(authorId)"
+        },
+        "users": {
+            "select": "true",
+            "insert": "user is not null",
+            "update": "user.eq(authorId)",
+            "delete": "user.eq(authorId)"
+        },
+        "userAuthors": {
+            "select": "true",
+            "insert": "user is not null",
+            "update": "user.eq(authorId)",
+            "delete": "user.eq(authorId)"
+        },
+        "authorPosts": {
+            "select": "true",
+            "insert": "user is not null",
+            "update": "user.eq(authorId)",
+            "delete": "user.eq(authorId)"
         }
     }
 }

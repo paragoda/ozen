@@ -1,0 +1,78 @@
+/*
+
+Reqs:
+- should be very clear and minimalistic
+- no spaces in names!
+- modular
+- support of comments (multiline also)
+
+*/
+
+db {
+  provider         postgresql
+  connectionStrEnV OZEN_DB_CONNECTION_STR 
+}
+
+auth {
+  ????????????????????????????????????????
+}
+
+// ??? out enum
+enum Role { USER, ADMIN }
+
+// will be cool to have types
+type ID { uuid pk autogen }
+
+table user {
+  id           ID // uuid pk autogen
+  name         varchar(255) nullable
+  email        varchar(255) unique
+  profileViews int default(0)
+  role         Role default(USER)
+  coinflips    boolean[]
+  city         text
+  country      text
+  pets         json
+
+  // virtual fields (exists in orm for easy connections)
+  // ? syntax ?
+  profile      virtual(extendedProfile) nullable
+  posts        virtual(post[])
+}
+
+access user {
+  select auth.uid.eq(id)
+}
+
+
+table extendedProfile {
+  id     int autoincrement pk
+  userId fk(user.id) nullable unique
+  bio    text nullable
+
+  // virtual
+  user   virtual(userId) // ??
+}
+
+
+table post {
+  id        int autoincrement pk
+  title     text
+  published boolean default(true)
+  authorId  fk(user.id)
+  comments  json
+  views     int default(0)
+  likes     int default(0)
+
+  // virtual
+  author    virtual(authorId, someOtherIdIfComposit)
+}
+
+/*
+  select, that is defined at build step
+  GET ozen/?view=publishedPosts
+  ? syntax, request parameters ?
+*/
+view publishedPosts {
+  query 
+}

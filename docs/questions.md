@@ -16,3 +16,12 @@ It will be cook to use grpc. Because It's faster, when use HTTP 2. But a loot of
 
 ---
 ## q4. Nullable unique
+
+---
+## q5. Why dev will not write sql to define schema
+Because they don't want use sql! And it's different for each db.
+Closed.
+
+---
+## q6. Why not use ts as schema definition lang
+Denied => look [schema.ts](./schema/schema.ts)

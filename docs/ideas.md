@@ -121,3 +121,28 @@ Because it's universal, of course it can be genarated from typescript,... sdk.
 ## i6. Change names "clinet", "server" to something else
 Because independent api will work throught client sdk. 
 Mot messasary but still.
+
+---
+## i7. own lang
+It will be cool if we will have own language as prisma or grpc has.
+Pros:
+- clear syntax
+- highlight
+- less symbols, shorter
+
+Cons:
+- new lang
+- need parser
+Check [schema.ozen](./schema/schema.ozen)
+Looks like great idea.
+Need more code, but It's not runtime code, so it's ok
+
+---
+## i8. npx create-ozen
+TS proj where define schema, run migrations, ...
+Ozen manager. Closed, denied. Not good idea.
+
+---
+## i9. on sync change files in repos
+When run `ozen sync`, it will change orm files in github repos.
+So on every new migration we will be sure that nothing breaks in already written code in other projects, which use this db. If new migration will break them you will see failed build and remember to fix it.
