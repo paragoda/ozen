@@ -190,14 +190,27 @@ const [user, ok] = await ozen.user
 
 if(ok) {
   await ozen.post.insert({
-    name: 'Alice',
-    email: 'alice@prisma.io'
+    title: 'Hello World'
   })
-  await ozen.user.insert({
-    name: 'Alice',
-    email: 'alice@prisma.io'
+  await ozen.profile.insert({
+    bio: 'I like turtles'
   })
 }
+
+// ozen in future
+const [user, ok] = await ozen.user
+  .output(u => u.id)
+  .insert({
+    name: 'Alice',
+    email: 'alice@prisma.io',
+    posts: [
+      { title: 'Hello World'}
+    ],
+    profile: {
+      bio:  'I like turtles'
+    }
+  })
+
 ```
 
 ### UPDATE

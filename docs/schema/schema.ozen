@@ -9,16 +9,30 @@ Reqs:
 */
 
 db {
-  provider         postgresql
-  connectionStrEnV OZEN_DB_CONNECTION_STR 
+  provider postgresql
+  urlEnv   OZEN_DB_CONNECTION_STR 
 }
 
 auth {
   ????????????????????????????????????????
 }
 
+// cool
+struct Coordinates {
+  x int
+  y int
+}
+
+table point {
+  id int autoincrement pk
+  coordinates Coordinates
+}
+
 // ??? out enum
-enum Role { USER, ADMIN }
+enum Role { 
+  USER
+  ADMIN 
+}
 
 // will be cool to have types
 type ID { uuid pk autogen }
@@ -44,11 +58,11 @@ access user {
   select auth.uid.eq(id)
 }
 
-
 table extendedProfile {
   id     int autoincrement pk
   userId fk(user.id) nullable unique
   bio    text nullable
+  birth  datetime default(now())
 
   // virtual
   user   virtual(userId) // ??
