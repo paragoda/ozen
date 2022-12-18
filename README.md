@@ -1,4 +1,5 @@
-# OZEN
+![logo](./assets/logo.png)
+
 
 Cross Platform ORM + Backend. Access your data from anywhere with same dx.
 Table of content: [concepts](#concepts) [ideas](./docs/ideas.md) [questions](./docs/questions.md)
